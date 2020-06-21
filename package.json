@@ -4,5 +4,20 @@
   "main": "index.js",
   "repository": "https://github.com/ryanirilli/deepdream.git",
   "author": "Ryan Irilli <ryanirilli@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=13.7.0"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "dependencies": {
+    "deepai": "^1.0.15",
+    "download": "^8.0.0",
+    "ffmpeg": "^0.0.4",
+    "mkdirp": "^1.0.4",
+    "pad-number": "^0.0.4",
+    "request": "^2.88.2",
+    "yargs": "^15.3.1"
+  }
 }
