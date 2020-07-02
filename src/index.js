@@ -60,13 +60,12 @@ async function renameFiles() {
     const name = file.split(fileExt)[0];
     const nameParts = name.split("_");
     const num = nameParts[1];
-    fs.rename(
+    fs.renameSync(
       `${extractImageSequencePath}/${file}`,
       `${extractImageSequencePath}/${nameParts[0]}_${pad(
         num,
         fileNamePadding
-      )}${fileExt}`,
-      () => {}
+      )}${fileExt}`
     );
   });
 }
@@ -78,7 +77,7 @@ async function processImages() {
       const video = await new ffmpeg(videoUrl);
       console.log("Extracting image sequence from video file...");
       await video.fnExtractFrameToJPG(extractImageSequencePath);
-      renameFiles();
+      await renameFiles();
     }
     const files = await readdir(extractImageSequencePath);
     const deepDreamData = { data: [] };
